@@ -29,3 +29,18 @@ document.getElementById("key-pad").addEventListener("click", function (event) {
     pinDisplay.value = newCalc;
   }
 });
+
+// verifypin
+function verifyPin() {
+  const displayPin = document.getElementById("display-input");
+  const displaykeys = document.getElementById("display-keys");
+  const successMsg = document.getElementById("sucessMsg");
+  const errorMsg = document.getElementById("errorMsg");
+  if (displayPin.value == displaykeys.value) {
+    successMsg.style.display = "block";
+    errorMsg.style.display = "none";
+  } else {
+    errorMsg.style.display = "block";
+    successMsg.style.display = "none";
+  }
+}
