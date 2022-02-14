@@ -19,14 +19,40 @@ document.getElementById("key-pad").addEventListener("click", function (event) {
   const number = event.target.innerText;
   const pinDisplay = document.getElementById("display-keys");
 
+  const successMsg = document.getElementById("sucessMsg");
+  const errorMsg = document.getElementById("errorMsg");
+
   if (isNaN(number) == true) {
     if (number == "C") {
       pinDisplay.value = "";
+      successMsg.style.display = "none";
+      errorMsg.style.display = "none";
     }
   } else {
     const prevCalc = pinDisplay.value;
     const newCalc = prevCalc + number;
     pinDisplay.value = newCalc;
+  }
+});
+
+// removing message when input field empty
+const displayInput = document.getElementById("display-keys");
+displayInput.addEventListener("keyup", function () {
+  const successMsg = document.getElementById("sucessMsg");
+  const errorMsg = document.getElementById("errorMsg");
+
+  if (displayInput.value == "") {
+    successMsg.style.display = "none";
+    errorMsg.style.display = "none";
+  }
+});
+displayInput.addEventListener("change", function () {
+  const successMsg = document.getElementById("sucessMsg");
+  const errorMsg = document.getElementById("errorMsg");
+
+  if (displayInput.value == "") {
+    successMsg.style.display = "none";
+    errorMsg.style.display = "none";
   }
 });
 
